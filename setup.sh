@@ -49,3 +49,5 @@ tmux source ~/.tmux.conf
 ################################################################################
 # setup git
 
+cp -f .gitconfig ~/.gitconfig
+
