@@ -27,9 +27,24 @@ cp -f .vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
+# install youcompleteme
+pushd ~/.vim/bundle/YouCompleteMe
+./install.py
+popd
+
 ################################################################################
 # setup tmux
 
+rm -rf ~/.tmux
+
+# tmux.conf
+cp -f .tmux.conf ~/.tmux.conf
+
+# plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
+
+# run prefix + I to install plugins
 
 ################################################################################
 # setup git
