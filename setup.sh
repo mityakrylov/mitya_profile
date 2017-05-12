@@ -3,23 +3,23 @@
 ################################################################################
 # setup profile
 
-mkdir -p $HOME/tmp
-mkdir -p $HOME/bin
+mkdir -p ~/tmp
+mkdir -p ~/bin
 
-cp -f .profile $HOME/.profile
+cp -f .profile ~/.profile
 touch $HOME/.profile_custom
 
 ################################################################################
 # setup vim
 
 # colors
-mkdir -p $HOME/.vim/colors
+mkdir -p ~/.vim/colors
 git clone https://github.com/vim-scripts/wombat256.vim.git
-cp -f wombat256.vim/colors/wombat256mod.vim $HOME/.vim/colors/
+cp -f wombat256.vim/colors/wombat256mod.vim ~/.vim/colors/
 rm -rf wombat256.vim
 
 # vimrc
-cp -f .vimrc $HOME/.vimrc
+cp -f .vimrc ~/.vimrc
 
 # vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
