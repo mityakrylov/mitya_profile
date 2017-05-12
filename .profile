@@ -4,7 +4,7 @@
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export TMPDIR=$HOME/tmp
 
-export LANG=ru_RU.UTF-8
+export LANG=en_US.UTF-8
 export LC_NUMERIC=C
 
 # Ignore first two ctrl+d, (ctrl+d sends EOF, which exits shell)
