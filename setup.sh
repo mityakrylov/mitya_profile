@@ -12,6 +12,8 @@ touch $HOME/.profile_custom
 ################################################################################
 # setup vim
 
+rm -rf ~/.vim
+
 # colors
 mkdir -p ~/.vim/colors
 git clone https://github.com/vim-scripts/wombat256.vim.git
