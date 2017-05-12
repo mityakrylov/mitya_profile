@@ -6,6 +6,7 @@
 2. tmux >=2.1
 3. git
 4. YouCompleteMe requirements (build-essential, cmake, python-dev, python3-dev), see [here](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)
+5. pyflakes: ```pip3 install --user pyflakes```
 
 ### Installation
 
