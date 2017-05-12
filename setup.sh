@@ -14,7 +14,7 @@ touch $HOME/.profile_custom
 
 # colors
 mkdir -p $HOME/.vim/colors
-git clone git@github.com:vim-scripts/wombat256.vim.git
+git clone https://github.com/vim-scripts/wombat256.vim.git
 cp -f wombat256.vim/colors/wombat256mod.vim $HOME/.vim/colors/
 rm -rf wombat256.vim
 
