@@ -12,12 +12,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'mathieui/pyflakes3-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mhinz/vim-startify'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'w0rp/ale'
+Plugin 'Valloric/ListToggle'
+"Plugin 'kshenoy/vim-signature'
+"Plugin 'vim-scripts/ReplaceWithRegister'
+set rtp+=~/.fzf
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -61,6 +69,7 @@ syntax on
 " display line numbers
 set number
 
+set background=dark
 colorscheme wombat256mod
 
 " Size of tab
@@ -103,12 +112,23 @@ set lazyredraw
 set wildmenu
 set wcm=<TAB>
 
+if version >= 800
+" always show sign column
+set signcolumn=yes
+endif
+
+" persistent undo
+call system('mkdir -p $HOME/.vim/undo')
+set undofile
+set undodir=$HOME/.vim/undo
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:airline#extensions#tabline#enabled = get(g:, 'airline#extensions#tabline#enabled', 1)
-let g:airline#extensions#tabline#switch_buffers_and_tabs = get(g:, 'airline#extensions#tabline#switch_buffers_and_tabs', 0)
+
+let g:airline_theme = 'dark'
 " display the status line always
 set laststatus=2
 
@@ -128,17 +148,49 @@ let g:EasyMotion_smartcase = 1
 
 " No default mappings for NerdCommenter
 let NERDCreateDefaultMappings=0
+" Use left comment by default
+let g:NERDDefaultAlign = 'left'
+" Use Ctrl+/ to toggle comments
+nmap  <plug>NERDCommenterToggle
+vmap  <plug>NERDCommenterToggle
 " Create mappings like in Visual Studio
-nmap <C-k><C-k> <plug>NERDCommenterAlignLeft
-vmap <C-k><C-k> <plug>NERDCommenterAlignLeft
-nmap <C-k><C-u> <plug>NERDCommenterUncomment
-vmap <C-k><C-u> <plug>NERDCommenterUncomment
+"nmap <C-k><C-k> <plug>NERDCommenterAlignLeft
+"vmap <C-k><C-k> <plug>NERDCommenterAlignLeft
+"nmap <C-k><C-u> <plug>NERDCommenterUncomment
+"vmap <C-k><C-u> <plug>NERDCommenterUncomment
 
 let g:ycm_autoclose_preview_window_after_completion = get(g:, 'ycm_autoclose_preview_window_after_completion', 1)
 let g:ycm_autoclose_preview_window_after_insertion = get(g:, 'ycm_autoclose_preview_window_after_insertion', 1)
 
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
+
+" Mappings for CtrlSF
+nmap <C-f> <Plug>CtrlSFPrompt
+vmap <C-f> <Plug>CtrlSFVwordPath
+nmap <F9> <Plug>CtrlSFCCwordPath
+
+" FZF
+nmap ø :FZF<CR>
+
+" ALE
+let g:ale_sign_error = '■'
+let g:ale_sign_warning = '■'
+
+hi Error ctermfg=252 ctermbg=124 cterm=none gui=undercurl guisp=Red
+hi ErrorMsg ctermfg=196 ctermbg=234 cterm=bold guifg=#ff2026 guibg=#3a3a3a gui=bold
+hi SpellBad ctermfg=252 ctermbg=124 cterm=none gui=undercurl guisp=Red
+hi SpellCap ctermfg=239 ctermbg=221 cterm=none gui=undercurl guisp=Red
+hi SignColumn ctermfg=241 ctermbg=232 cterm=none guifg=#857b6f guibg=#080808 gui=none
+hi ALEErrorSign ctermfg=124 ctermbg=232 cterm=none gui=undercurl guisp=Red
+hi ALEWarningSign ctermfg=221 ctermbg=232 cterm=none gui=undercurl guisp=Red
+
+nmap <silent> [l <Plug>(ale_previous_wrap)
+nmap <silent> ]l <Plug>(ale_next_wrap)
+
+let g:ale_linters = {
+\   'python': ['pylint'],
+\}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom mappings
@@ -154,32 +206,18 @@ map gv <C-w>v<C-w>lgf
 map <Leader>oq :copen<CR>
 map <Leader>cq :cclose<CR>
 
-" Go to references on Alt+Shift+f
-"nmap F :YcmCompleter GoToReferences<CR>
-
 " Global replace word under cursor on \rr
 nmap <Leader>rr :%s/<C-r><C-w>//g<Left><Left>
 
-" Stupid way to unmap F3-F7
-map <F3> <ESC>
-map! <F3> <ESC>
-map <F4> <ESC>
-map! <F4> <ESC>
-map <F4> <ESC>
-map! <F4> <ESC>
-map <F5> <ESC>
-map! <F5> <ESC>
-map <F6> <ESC>
-map! <F6> <ESC>
-map <F7> <ESC>
-map! <F7> <ESC>
-
 " Close current buffer on Alt+w
 :nmap w :call Bclose()<CR>
+:nmap ∑ :call Bclose()<CR>
 " Close current window on Alt+q
 map q :q<CR>
+map œ :q<CR>
 " Close all windows on Alt+Shift+q
 map Q :qa<CR>
+map Œ :qa<CR>
 
 " Ctrl+s to save (need to properly setup putty: send correct signal on ctrl+s)
 map <C-s> :w<cr>
@@ -195,7 +233,8 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Paste mode
-set pastetoggle=<leader>p
+"set pastetoggle=<leader>p
+set pastetoggle=π
 
 nmap <F3> :noh<CR>
 
@@ -215,8 +254,7 @@ map! <F11> <ESC>:bnext<CR>i
 " Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Bclose() {{{2
-" " delete buffer without closing window
+" delete buffer without closing window
 function! Bclose()
     let curbufnr = bufnr("%")
     let altbufnr = bufnr("#")
@@ -255,7 +293,7 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby,python,sh autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,sh,yaml,json autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Color column (grey color for all columns after 120)
 "let &colorcolumn=join(range(120,999),",")
@@ -264,9 +302,10 @@ autocmd FileType c,cpp,java,php,ruby,python,sh autocmd BufWritePre <buffer> :cal
 " Highlight .sh files as bash
 let g:is_bash = 1
 
-" Better SpellBad highlight (for pyflakes)
-hi SpellBad ctermfg=252 ctermbg=124 cterm=none gui=undercurl guisp=Red
-
 " dot in keywords for sh languages
 let g:sh_noisk="yes"
+
+" Copy between vim instances using tmp file
+vmap <leader>y :w! ~/tmp/vim_clipboard<CR>
+nmap <leader>p :r! cat ~/tmp/vim_clipboard<CR>
 
