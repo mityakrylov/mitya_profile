@@ -1,12 +1,12 @@
-# mitya_profile
+# mitya profile
 
 ### Requirements
 
-1. vim >=7.4 with +python3
+1. vim >=8.0 with +python3
 2. tmux >=2.1
 3. git
 4. YouCompleteMe requirements (build-essential, cmake, python-dev, python3-dev), see [here](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)
-5. pyflakes: ```pip3 install --user pyflakes```
+5. pylint: ```pip3 install --user pylint```
 
 ### Installation
 
