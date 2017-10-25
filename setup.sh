@@ -51,3 +51,8 @@ tmux source ~/.tmux.conf
 
 cp -f .gitconfig ~/.gitconfig
 
+################################################################################
+# setup git
+
+cp -f .pylintrc ~/.pylintrc
+
