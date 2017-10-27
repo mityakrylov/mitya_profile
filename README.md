@@ -7,6 +7,7 @@
 3. git
 4. YouCompleteMe requirements (build-essential, cmake, python-dev, python3-dev), see [here](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)
 5. pylint: ```pip3 install --user pylint```
+6. [fzf](https://github.com/junegunn/fzf#using-git)
 
 ### Installation
 

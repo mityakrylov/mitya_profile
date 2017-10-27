@@ -56,9 +56,3 @@ cp -f .gitconfig ~/.gitconfig
 
 cp -f .pylintrc ~/.pylintrc
 
-################################################################################
-# setup fzf
-
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
