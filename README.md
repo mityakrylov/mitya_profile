@@ -41,6 +41,12 @@
    pip3 install --user pylint
    ```
 6. [fzf](https://github.com/junegunn/fzf#using-git)
+   ```
+   Do you want to enable fuzzy auto-completion? ([y]/n) y
+   Do you want to enable key bindings? ([y]/n) y
+   
+   Do you want to update your shell configuration files? ([y]/n) n
+   ```
 
 ### Installation
 
