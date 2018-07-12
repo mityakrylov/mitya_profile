@@ -200,7 +200,7 @@ let g:ale_linters = {
 "nmap <Space> :
 
 " Open file under cursor in vertical split
-map gv <C-w>v<C-w>lgf
+"map gv <C-w>v<C-w>lgf
 
 " Open and close quick fix window
 map <Leader>oq :copen<CR>
@@ -223,8 +223,16 @@ map Œ :qa<CR>
 map <C-s> :w<cr>
 imap <C-s> <ESC>:w<cr>
 
-" \N to toggle line numbers
-nmap <Leader>N :set invnumber<CR>
+" \N to toggle line numbers and sign column
+fun! ToggleSignColumn()
+    if &signcolumn == 'yes'
+        set signcolumn=no
+    else
+        set signcolumn=yes
+    endif
+endf
+
+nmap <Leader>N :set invnumber<CR>:call ToggleSignColumn()<CR>
 
 " Move between splits on Ctrl+h,j,k,l
 nmap <C-h> <C-w>h
