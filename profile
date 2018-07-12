@@ -10,7 +10,7 @@ export LC_NUMERIC=C
 # Ignore first two ctrl+d, (ctrl+d sends EOF, which exits shell)
 export IGNOREEOF=2
 
-export MY_VIM_PATH="$HOME/install/bin/vim"
+export MY_VIM_PATH="usr/bin/vim"
 export GIT_EDITOR="$MY_VIM_PATH"
 
 ####################################################################################################
