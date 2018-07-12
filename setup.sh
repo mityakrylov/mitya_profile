@@ -6,7 +6,7 @@
 mkdir -p ~/tmp
 mkdir -p ~/bin
 
-cp -f .profile ~/.profile
+cp -f profile ~/.profile
 touch $HOME/.profile_custom
 
 ################################################################################
@@ -21,7 +21,7 @@ cp -f wombat256.vim/colors/wombat256mod.vim ~/.vim/colors/
 rm -rf wombat256.vim
 
 # vimrc
-cp -f .vimrc ~/.vimrc
+cp -f vimrc ~/.vimrc
 
 # vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -38,7 +38,7 @@ popd
 rm -rf ~/.tmux
 
 # tmux.conf
-cp -f .tmux.conf ~/.tmux.conf
+cp -f tmux.conf ~/.tmux.conf
 
 # plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -49,10 +49,10 @@ tmux source ~/.tmux.conf
 ################################################################################
 # setup git
 
-cp -f .gitconfig ~/.gitconfig
+cp -f gitconfig ~/.gitconfig
 
 ################################################################################
-# setup git
+# setup pylint
 
-cp -f .pylintrc ~/.pylintrc
+cp -f pylintrc ~/.pylintrc
 
