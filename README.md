@@ -2,23 +2,40 @@
 
 ### Requirements
 
-1. vim >=8.0 with +python3. To install vim from source with python3 support run in home directory:
-```
-sudo apt-get install build-essential ncurses-dev python3-dev
+1. vim >=8.0 with +python3.
 
-mkdir install
-mkdir external
-cd external
-git clone https://github.com/vim/vim.git
+   To install vim with apt-get on Ubuntu 16.04 run:
+   ```
+   sudo add-apt-repository ppa:jonathonf/vim
+   sudo apt-get update
+   sudo apt-get install vim
+   ```
+   To install vim from source with python3 support run in home directory:
+   ```
+   sudo apt-get install build-essential ncurses-dev python3-dev
 
-cd vim
-./configure --prefix=$HOME/install --enable-python3interp=yes --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu
-make && make_install
-```
+   mkdir install
+   mkdir external
+   cd external
+   git clone https://github.com/vim/vim.git
+
+   cd vim
+   ./configure --prefix=$HOME/install --enable-python3interp=yes --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu
+   make && make_install
+   ```
 2. tmux >=2.1
+   ```
+   sudo apt-get install tmux
+   ```
 3. git
+   ```
+   sudo apt-get install git
+   ```
 4. YouCompleteMe requirements (build-essential, cmake, python-dev, python3-dev), see [here](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)
-5. pylint: ```pip3 install --user pylint```
+5. pylint: 
+   ```
+   pip3 install --user pylint
+   ```
 6. [fzf](https://github.com/junegunn/fzf#using-git)
 
 ### Installation
@@ -29,6 +46,8 @@ git clone https://github.com/mityakrylov/mitya_profile.git
 cd mitya_profile
 ./setup.sh
 ```
+
+Or use ```./setup_vim.sh``` instead of ```./setup.sh``` if only vim is needed.
 
 ### After installation
 
@@ -41,3 +60,17 @@ git config --global user.email johndoe@example.com
 ```
 
 3. Change hostname if necessary: replace \h with hostname in PS1 in .profile.
+
+4. Setup virtaulenv for python
+   ```
+   sudo pip3 install virtualenv
+   pip3 install --user virtualenvwrapper
+   ```
+  
+   Add something like this to ```.profile_custom```:
+  
+   ```
+   export WORKON_HOME=~/envs
+   export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+   source $HOME/.local/bin/virtualenvwrapper.sh
+   ```
