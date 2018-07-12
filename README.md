@@ -32,6 +32,10 @@
    sudo apt-get install tmux
    ```
 4. YouCompleteMe requirements (build-essential, cmake, python-dev, python3-dev), see [here](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)
+   ```
+   sudo apt-get install build-essential cmake
+   sudo apt-get install python-dev python3-dev
+   ```
 5. pylint: 
    ```
    pip3 install --user pylint
