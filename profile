@@ -79,7 +79,7 @@ find_git_branch() {
 
 export PROMPT_COMMAND="find_git_branch"
 
-export PS1="$PROMPT_COLOR_START[\u@\h:\w]$PROMPT_COLOR_GIT_BRANCH_CLEAN\$GIT_BRANCH_CLEAN$PROMPT_COLOR_GIT_END$PROMPT_COLOR_GIT_BRANCH_DIRTY\$GIT_BRANCH_DIRTY$PROMPT_COLOR_END $PROMPT_COLOR_END"
+export PS1="$PROMPT_COLOR_START[\u@bdev:\w]$PROMPT_COLOR_GIT_BRANCH_CLEAN\$GIT_BRANCH_CLEAN$PROMPT_COLOR_GIT_END$PROMPT_COLOR_GIT_BRANCH_DIRTY\$GIT_BRANCH_DIRTY$PROMPT_COLOR_END $PROMPT_COLOR_END"
 
 ####################################################################################################
 # Aliases
@@ -104,6 +104,8 @@ alias gci="git commit"
 alias ga="git add"
 alias gu="git reset HEAD"
 alias gb="git branch"
+alias nbt="nbtop -u http://localhost:26040"
+alias gp="fix_ssh_auth_sock; git pull"
 
 alias vim="$MY_VIM_PATH"
 
