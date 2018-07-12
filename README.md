@@ -2,7 +2,11 @@
 
 ### Requirements
 
-1. vim >=8.0 with +python3.
+1. git
+   ```
+   sudo apt-get install git
+   ```
+2. vim >=8.0 with +python3.
 
    To install vim with apt-get on Ubuntu 16.04 run:
    ```
@@ -23,13 +27,9 @@
    ./configure --prefix=$HOME/install --enable-python3interp=yes --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu
    make && make_install
    ```
-2. tmux >=2.1
+3. tmux >=2.1
    ```
    sudo apt-get install tmux
-   ```
-3. git
-   ```
-   sudo apt-get install git
    ```
 4. YouCompleteMe requirements (build-essential, cmake, python-dev, python3-dev), see [here](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64)
 5. pylint: 
