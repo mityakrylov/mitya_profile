@@ -84,8 +84,14 @@ export PS1="$PROMPT_COLOR_START[\u@\h:\w]$PROMPT_COLOR_GIT_BRANCH_CLEAN\$GIT_BRA
 ####################################################################################################
 # Aliases
 
-alias l="ls -1F --color=auto --group-directories-first"
-alias ll="ls -F --color=auto --group-directories-first"
+if [[ "$OSTYPE" == "linux"* ]]; then
+    alias l="ls -1F --color=auto --group-directories-first"
+    alias ll="ls -F --color=auto --group-directories-first"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    alias l="gls -1F --color=auto --group-directories-first"
+    alias ll="gls -F --color=auto --group-directories-first"
+fi
+
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -i"
