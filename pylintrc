@@ -8,10 +8,14 @@
 #   C0103 = Invalid name
 #   C0411 = Wrong import order
 #
+#
 #   W0613 = Unused argument
 #   W0703 = To general exception
 #
 #   R0903 = Too few public methods
+#   R0913 = Too many arguments
+#   R0914 = Too many local variables
 #
-disable=C0301,C0305,C0111,C0103,C0411,W0613,W0703,R0903
+#
+disable=C0301,C0305,C0111,C0103,C0411,W0613,W0703,R0903,R0913,R0914
 
