@@ -165,10 +165,13 @@ let g:ycm_autoclose_preview_window_after_insertion = get(g:, 'ycm_autoclose_prev
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 
-" Mappings for CtrlSF
+" Settings for CtrlSF
 nmap <C-f> <Plug>CtrlSFPrompt
 vmap <C-f> <Plug>CtrlSFVwordPath
 nmap <F9> <Plug>CtrlSFCCwordPath
+
+"let g:ctrlsf_auto_focus = { "at": "done", "duration_less_than": 2000 }
+let g:ctrlsf_auto_focus = { "at": "start" }
 
 " FZF
 nmap ø :FZF<CR>
