@@ -192,7 +192,7 @@ nmap <silent> [l <Plug>(ale_previous_wrap)
 nmap <silent> ]l <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
-\   'python': ['pylint'],
+\   'python': ['flake8'],
 \}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

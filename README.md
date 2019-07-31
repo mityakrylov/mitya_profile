@@ -36,9 +36,9 @@
    sudo apt-get install build-essential cmake
    sudo apt-get install python-dev python3-dev
    ```
-5. pylint: 
+5. flake8:
    ```
-   pip3 install --user pylint
+   pip3 install --user flake8
    ```
 6. [fzf](https://github.com/junegunn/fzf#using-git)
    ```

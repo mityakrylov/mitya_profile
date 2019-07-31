@@ -34,7 +34,8 @@ tmux source ~/.tmux.conf
 cp -f gitconfig ~/.gitconfig
 
 ################################################################################
-# setup pylint
+# setup flake8
 
-cp -f pylintrc ~/.pylintrc
+mkdir -p ~/.config
+cp -f flake8 ~/.config/flake8
 
