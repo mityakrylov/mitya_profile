@@ -260,6 +260,10 @@ map! <F10> <ESC>:bprevious<CR>
 map <F11> :bnext<CR>
 map! <F11> <ESC>:bnext<CR>i
 
+nnoremap “ :bprevious<CR>
+nnoremap ‘ :bnext<CR>
+inoremap “ <Esc>:bprevious<CR>
+inoremap ‘ <Esc>:bnext<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
